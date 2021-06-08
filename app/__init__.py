@@ -5,6 +5,7 @@ from datetime import timedelta
 from .main.routes import main
 from .users.routes import users
 from .tests.routes import tests
+from .tutorials.routes import tutorials
 
 #importing extensions
 from .extensions import *
@@ -31,6 +32,7 @@ def create_app():
         app.register_blueprint(main)
         app.register_blueprint(users)
         app.register_blueprint(tests)
+        app.register_blueprint(tutorials)
         
         #registering filters
         app.jinja_env.filters['filter_shuffle'] = filter_shuffle
