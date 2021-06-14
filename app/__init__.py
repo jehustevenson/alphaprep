@@ -24,6 +24,7 @@ def create_app():
     migrate.init_app(app, db)
     mail.init_app(app)
     bcrypt.init_app(app)
+    mysql.init_app(app)
     
     login_manager.login_view = 'main.login'
     

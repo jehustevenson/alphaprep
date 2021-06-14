@@ -5,13 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('main.static', filename='css/reportbugs.css')}}">
 </head>
 
-{#
+
 {% if current_user.is_authenticated %}
 	{% extends "prototype.html" %}
 {% else %}
 		{% extends "index_layout.html" %}
 {% endif %}
-#}
+
 
 {% extends "index_layout.html" %}
 

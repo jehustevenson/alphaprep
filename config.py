@@ -19,6 +19,12 @@ class DevelopmentConfig(BaseConfig):
     MAIL_USERNAME = os.environ['ALPHA_MAIL']
     MAIL_PASSWORD = os.environ['ALPHA_MAIL_PASSWORD']    
     
+    MYSQL_DATABASE_USER = os.environ['ALPHA_DB_USER']
+    MYSQL_DATABASE_PASSWORD = os.environ['ALPHA_DB_PASSWORD']
+    MYSQL_DATABASE_DB = os.environ['ALPHA_DB_NAME']
+    MYSQL_DATABASE_HOST = 'localhost'
+    MYSQL_DATABASE_AUTH_PLUGIN='mysql_native_password'
+    
     
 class TestingConfig(BaseConfig):
     DEBUG = True

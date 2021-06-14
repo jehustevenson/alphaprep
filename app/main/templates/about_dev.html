@@ -9,13 +9,13 @@
 <title> About - Developers </title>
 
 <body>
-{#
+
 {% if current_user.is_authenticated %}
 	{% extends "prototype.html" %}
 {% else %}
 		{% extends "index_layout.html" %}
 {% endif %}
-#}
+
 
 {% extends "index_layout.html" %}
 {% block body %}

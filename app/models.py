@@ -100,3 +100,70 @@ class User_achievement(db.Model):
     
     def __repr__(self):
         return f"User('{self.user}', '{self.crowns}', '{self.trophies}')"
+
+    
+class English(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(255), nullable=False)
+    usr_lvl = db.Column(db.Integer, nullable=False)
+    question = db.Column(db.Text, nullable=False)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    option_d = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(255), nullable=False)
+
+    
+class Social(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(255), nullable=False)
+    usr_lvl = db.Column(db.Integer, nullable=False)
+    question = db.Column(db.Text, nullable=False)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    option_d = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(255), nullable=False)
+    
+
+class Inter(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(255), nullable=False)
+    usr_lvl = db.Column(db.Integer, nullable=False)
+    question = db.Column(db.Text, nullable=False)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    option_d = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(255), nullable=False)
+
+    
+class Math(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(255), nullable=False)
+    usr_lvl = db.Column(db.Integer, nullable=False)
+    question = db.Column(db.Text, nullable=False)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    option_d = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(255), nullable=False)
+
+    
+class Story(db.Model):
+    id = db.Column(db.String(6), primary_key=True)
+    story = db.Column(db.Text, nullable=False)
+    storyoptions = db.relationship('StoryOptions', backref='author', lazy=True)
+    
+    
+class StoryOptions(db.Model):
+    __tablename__ = 'storyoptions'
+    
+    storyid = db.Column(db.String(6), db.ForeignKey('story.id'), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    option_d = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(255), nullable=False)
+    
