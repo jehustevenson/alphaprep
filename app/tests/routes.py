@@ -203,18 +203,20 @@ def resultspage():
     total4=0
     total5=0
     total6=0
+    def ff (j):
+            if j[0] in answered1:
+                correct1 += 1
+    def yieyie(i):
+        total1 += 1
+        global answered1
+        answered1 = request.form.getlist(i) #gets the answers from the other page
+        global bans1
+        bans1 = request.form.to_dict(i) # transfers all the answers to a dict, it comes as key: the questions and value: the answers picked
+        filter(ff, answered1)
     if subject == 'english':
         
-    
-        for i in question1.keys():
-            total1 += 1
-            global answered1
-            answered1 = request.form.getlist(i) #gets the answers from the other page
-            global bans1
-            bans1 = request.form.to_dict(i) # transfers all the answers to a dict, it comes as key: the questions and value: the answers picked
-            for j in answer1[i]: #loop for making the work
-                if j[0] in answered1:
-                    correct1 +=1
+        map(yieyie, question1.keys)
+       
         
         global question2
         questions = question2
@@ -226,21 +228,21 @@ def resultspage():
         global answer2
         answers = answer2
     
-        
-       
-        
-        
-    
-        for i in questions.keys():
+        def kk(j):
+            if j[0] in answered2:
+                    correct2 +=1
+
+        def heinz(i):
             total2 += 1
             global answered2
             answered2 = request.form.getlist(i) #gets the answers from the other page
             global bans2
-            bans2 = request.form.to_dict(i) # transfers all the answers to a dict, it comes as key: the questions and value: the answers picked
+            bans2 = request.form.to_dict(i)
+            filter(kk, answered2)
+        map(heinz, questions.keys)
         
-            for j in answers[i]: #loop for making the work
-                if j[0] in answered2:
-                    correct2 +=1
+    
+     
     
         
         global optionss
