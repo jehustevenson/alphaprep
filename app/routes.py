@@ -19,7 +19,7 @@ with app.app_context():
         users = User.query.all() # gets all users
         filter(lambda user: msg(user), users)
          # the link sent is to the login page and this is the body of the message
-    subject = "hello! We miss you! %s" % user.name
+    subject = "hello! We miss you! %s" % user.username
     msg = Message(recipients=[user.email],
      body=message,
                               subject=subject, sender=('Alpha Prep', 'noreply@sender.com'))
