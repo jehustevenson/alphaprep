@@ -12,7 +12,7 @@ from .extensions import *
 
 from .util.filters import filter_shuffle
 
-
+#Application factory design pattern
 def create_app():
     app = Flask(__name__)
     
@@ -26,6 +26,7 @@ def create_app():
     bcrypt.init_app(app)
     mysql.init_app(app)
     
+    # Facade design pattern
     login_manager.login_view = 'main.login'
     
     
